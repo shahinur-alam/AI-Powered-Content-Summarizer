@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Content Summarizer</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+        h1 { color: #333; }
+        textarea { width: 100%; height: 200px; margin-bottom: 10px; }
+        select { margin-bottom: 10px; }
+        input[type="submit"] { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
+        input[type="submit"]:hover { background-color: #45a049; }
+        #summary { background-color: #f2f2f2; padding: 15px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>AI-Powered Content Summarizer</h1>
+    <form method="post">
+        <textarea name="text" placeholder="Enter your text here..." required></textarea><br>
+        <select name="summary_type">
+            <option value="short">Short Summary</option>
+            <option value="detailed">Detailed Summary</option>
+        </select><br>
+        <select name="format_type">
+            <option value="paragraph">Paragraph</option>
+            <option value="bullet_points">Bullet Points</option>
+        </select><br>
+        <input type="submit" value="Summarize">
+    </form>
+    {% if summary %}
+        <h2>Summary:</h2>
+        <div id="summary">
+            {% if request.form['format_type'] == 'bullet_points' %}
+                {{ summary|safe }}
+            {% else %}
+                <p>{{ summary }}</p>
+            {% endif %}
+        </div>
+    {% endif %}
+</body>
+</html>
