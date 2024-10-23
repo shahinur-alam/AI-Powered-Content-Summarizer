@@ -13,6 +13,10 @@ import torch
 
 app = Flask(__name__)
 
+# Check for CUDA availability
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
+
 # Load the Llama 2 model and tokenizer (as a proxy for Llama 3)
 model_name = "meta-llama/Llama-2-7b-hf"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
