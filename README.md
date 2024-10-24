@@ -1,6 +1,12 @@
-# AI Powered Content Summarization App using BART
+# AI-Powered Content Summarizer
 
-This Flask app uses the BART model to summarize text, with options for short or long summaries in paragraph or bullet-point format.
+This project features a Flask-based web application that integrates various NLP models to generate text summaries. Users can input text and receive summaries in formats like paragraphs or bullet points, utilizing models such as BART, Llama 2, and Ollama Llama 3, with support for fine-tuning using LoRA.
+
+## Features
+- Summarization using BART, Llama 2, and Ollama Llama 3.
+- Choose between paragraph or bullet points format.
+- Adjustable summary lengths.
+- Efficient fine-tuning with LoRA.
 
 ## Installation
 
@@ -35,7 +41,9 @@ The app will run at http://127.0.0.1:5000.
 ## File Structure
 ```bash
 .
-├── app.py          # Main app
+├── content_summarizer.py          # Main app
+├── content_summarizer_Llama3.py
+├── content_summarizer_Llama27_finetune.py  
 └── templates/
     └── index.html  # Web interface
 ```
